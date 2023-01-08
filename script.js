@@ -1,6 +1,7 @@
 let numberOfFilms;
-// Цей метод запитує у користувача, скільки фільмів він переглянув. Якщо користувач залишив порожню строку, 
-// або вказав текс, чи відмінив, повторно запитуємо.
+// This method asks the user how many movies they have watched. If the user left an empty string, 
+// or specified a text, or canceled, we ask again.
+
 
 function start() {
     numberOfFilms = prompt("Скільки фільмів ви уже подивилися?", "");
@@ -10,7 +11,7 @@ function start() {
 }
 start();
 
-// Головний об'єкт, база отриманих даних.
+// The main object, the database of the received data.
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -19,9 +20,9 @@ const personalMovieDB = {
     privat: false
 };
 
-// Метод запитує у користувач про останні переглянуті фільми, і на скільки користувач їх оцінює. Проводиться перевірка
-// в назві фільму, чи не порожня строка, та чи довжина назви не більша 50 символів. Якщо провірку не проходить,
-// то повторно запитуємо. Отримані дані записуємо в головний об'єкт. 
+// The method asks the user about the last watched movies and how much the user rated them. It checks
+// in the movie title, whether the string is not empty, and whether the length of the title is no more than 50 characters. If the check does not pass,
+// then we repeat the request. The received data is written to the main object. 
 
 function rememberMyFilms() {
     start: for (let i = 0; i < 2; i++) {
@@ -46,7 +47,7 @@ function rememberMyFilms() {
 }
 rememberMyFilms();
 
-// Визначає рівень кіномана користувача, взалежності від отриманої відповіді на старті програми.
+// Determines the cinephile level of the user, depending on the answer received at the start of the program.
 function detectPersonalLevel() {
     if (personalMovieDB.count < 10) {
         console.log("Переглянуто мало фільмів");
